@@ -13,9 +13,7 @@ func NewX() *X {
 }
 
 func NewY() *Y {
-	y := new(Y)
-	y.x = 10
-	return y
+	return &Y{X{10}}
 }
 
 // Shared functionality which uses specialized method

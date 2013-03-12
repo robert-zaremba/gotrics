@@ -1,3 +1,7 @@
+/* Specialization pattern
+ * you want to share some common functionality which uses specialized methods.
+ */
+
 package main
 
 type X struct {
@@ -15,6 +19,7 @@ func NewY() *Y {
 }
 
 // Shared functionality which uses specialized method
+// Receiver can't be an interface
 func (this *X) Basic() {
 	this.Specialized()
 	println(this.x)
@@ -34,5 +39,5 @@ func main() {
 	x := NewX()
 	x.Basic()
 	y := NewY()
-	y.Basic() // Error
+	y.Basic() // Error: y.Basic undefined (type *Y has no field or method Basic)
 }

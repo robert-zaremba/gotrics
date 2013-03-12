@@ -1,4 +1,5 @@
 // Solution by Nate Finch
+
 package main
 
 type X struct {
