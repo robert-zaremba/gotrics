@@ -1,4 +1,6 @@
-// Solution by Nate Finch
+/* by Nate Finch
+ * The solution is to refactor the method flow order.
+ */
 
 package main
 
@@ -6,12 +8,12 @@ type X struct {
 	x int
 }
 
-func (x *X) Log() {
+func (x *X) Specialized() {
 	x.x -= 1
-	x.print()
+	x.Basic()
 }
 
-func (x *X) print() {
+func (x *X) Basic() {
 	println(x.x)
 }
 
@@ -20,9 +22,9 @@ type Y struct {
 }
 
 // Y's Log method hides X's, so if you call Y.Log, it'll call this instead
-func (y *Y) Log() {
+func (y *Y) Specialized() {
 	y.x += 2
-	y.print()
+	y.Basic()
 }
 
 // Initializers can return both final type or interface - Logger
@@ -37,9 +39,9 @@ func NewY() *Y {
 
 func main() {
 	x := NewX()
-	x.Log()
+	x.Specialized()
 	y := NewY()
-	y.Log()
+	y.Specialized()
 }
 
 // this is the interface both *X and *Y fulfill
