@@ -10,16 +10,20 @@ type Y struct {
 }
 
 func NewX() *X {
-	x := &X{x: 0}
+	x := &X{0, nil}
 	x.specialized = func() {
 		x.x -= 1
 	}
 	return x
 }
 
+// This can also be implemented as a function which returns *X
+// So we won't need Y struct definition
+// But it is here to show how different structs can handle common Basic method
 func NewY() *Y {
-	y := new(Y)
-	y.x = 10
+	// y := new(Y)
+	// y.x = 10
+	y := &Y{X{10, nil}}
 	y.specialized = func() {
 		y.x += 2
 	}
