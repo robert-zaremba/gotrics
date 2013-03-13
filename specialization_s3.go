@@ -1,3 +1,6 @@
+/* This solution seems to be similar to the s1 / s1v2 one
+ */
+
 package main
 
 type Dependency interface {
