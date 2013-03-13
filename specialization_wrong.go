@@ -36,5 +36,7 @@ func main() {
 	x := NewX()
 	x.Basic()
 	y := NewY()
-	y.Basic()
+	y.Basic()   // prints 9 instead of 9
+	y.X.Basic() // this statement show what is really called by in the previous line
+	// The problem is that y.Basic == y.X.Basic which doesn't know anything about y and y.Specialized
 }

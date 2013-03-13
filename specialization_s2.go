@@ -1,5 +1,6 @@
-/* by Nate Finch
- * The solution is to refactor the method flow order.
+/* The solution is to refactor the method flow order.
+ * Problem: what if we have more Basic methods, which rely on Specialized?
+ *    Then probably we need to implementa *basic specialized* method and other Specialized ones according to the number of Basic methods
  */
 
 package main
