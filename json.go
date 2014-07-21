@@ -57,11 +57,12 @@ func (m *MessageT) UnmarshalJSON(b []byte) error {
 	err = json.Unmarshal(mp.Data, m.Data)
 	if err != nil {
 		log.Fatal(err)
+		return err
 	}
 	// copy  fields
 	m.Name = mp.Name
 	m.Type = mp.Type
-	return err
+	return nil
 }
 
 func customizeUnmarshall() {
